@@ -1,2 +1,3 @@
-# template4sciencelive
-Create nanopublication template for Science Live
+# Create Nanopublication Templates For sciencelive
+
+Python scripts to help generating nanopublication templates for the Science Live Project. 
