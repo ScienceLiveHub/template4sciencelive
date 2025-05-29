@@ -644,3 +644,320 @@ sub:pubinfo {
     orcid:0000-0002-1784-2920 foaf:name "Anne Fouilloux" .
 }
 ```
+
+### Rosetta Statements
+
+Following the paper [Rosetta Statements: Simplifying FAIR Knowledge Graph Construction with a User-Centered Approach, Lars Vogt, Kheir Eddine Farfar, Pallavi Karanth, Marcel Konrad, Allard Oelen, Manuel Prinz, Philip Stroemert](https://doi.org/10.48550/arXiv.2407.20007), we try to implement what they suggest.
+
+
+```
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix hycl: <http://purl.org/petapico/o/hycl#> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rosetta: <https://w3id.org/rosetta/> .
+@prefix schema1: <http://schema.org/> .
+@prefix sub: <http://purl.org/np/RA9S1dErRCmNOXAhSOdNH1J1wE3xk-XzIxXIj-AZWWn6g#> .
+@prefix this: <http://purl.org/np/RA9S1dErRCmNOXAhSOdNH1J1wE3xk-XzIxXIj-AZWWn6g> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sub:pubinfo {
+    sub:sig npx:hasAlgorithm "RSA" ;
+        npx:hasPublicKey "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0gGDpeiiy/A8xC0+YWEsSohGGfDqM60yrF/yd5aFE4v2RFgGOkkbUrrG4Ib6DVYIMcXqR77sgM9Kjel/iAYkXFNzW53UMEPUgfVNRw5iaGi8nRzf1JL1LSRfH3LCcC61zp5wZA4JvmosHlXJyyiRp3qksvxkCkb7r4Av587uNsYTEhqvDtmZMb3IVoiSKgZ9vgRHB00cJQ2bHyp+rCbI31QBu+eJ5JRMW8mmaIEUFKp37F8xKds5l17WpxAvSzpvC1cW7KCCDprWc5/eV7icBDRUB2fDb9NozGttNBRqzOd54XrAFvNAZHhVUnufkT3nNxrWHc4BUexgIaWESlgVdwIDAQAB" ;
+        npx:hasSignature "nsJX/4M4TWOlfBiWubQcAc636+UPkCK3gyHVoYozTIipWftfDIalQ37iquT6X1TCCYcz+lVXmXD4UtGWyUpnX5bIwCH9r8x2ZiJ3llAoW8OX5/jvmTeuGQFUNJ5b30iV5+02ACEcxNz+vMEDnEc5BKCm6UNFLxThCP4Ehg0mxid3ou+gkVAr3ft6TLvKhHI0IQs1TFufLLRhidwYPJbd+UByH2MD1j/2cacuuckukXmZonfeUzVcvnnxx7UsVGQjXufQjzhGW/81ZCAj1iSCo9jVZCw0HcxRcFR/cZ5uPEa9dV1m5v9iwW7zkc+95ZeBd1aMHS+S2ofpEvcShPV30Q==" ;
+        npx:hasSignatureTarget this: .
+
+    this: prov:generatedAtTime "2025-05-29T19:27:10.982744"^^xsd:dateTime ;
+        prov:wasAttributedTo orcid:0000-0002-1784-2920 .
+
+    orcid:0000-0002-1784-2920 foaf:name "Anne Fouilloux" .
+}
+
+sub:assertion {
+    dcterms:created rdfs:label "created - timestamp of creation" .
+
+    dcterms:creator rdfs:label "creator - person who created this statement" .
+
+    hycl:AIDA-Sentence rdfs:label "AIDA sentence - Atomic, Independent, Declarative, Absolute sentence" .
+
+    prov:wasAttributedTo rdfs:label "was attributed to - attribution of statement" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#assertion> a nt:AssertionTemplate ;
+        rdfs:label "Creating a Rosetta Statement following the natural language statement metamodel" ;
+        dcterms:description """<p>This template allows you to create Rosetta Statements following the metamodel described in "Rosetta Statements: Simplifying FAIR Knowledge Graph Construction with a User-Centered Approach".</p>
+
+<p><strong>Rosetta Statements</strong> model the structure of simple English natural language statements rather than attempting to represent a mind-independent reality. They prioritize:</p>
+<ul>
+<li><strong>Cognitive Interoperability:</strong> Easy to understand for domain experts</li>
+<li><strong>Findability:</strong> Supports search without requiring SPARQL knowledge</li>
+<li><strong>Semantic Interoperability:</strong> Standardized patterns for each statement type</li>
+<li><strong>User-Centered Design:</strong> Reflects natural language structure</li>
+</ul>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>N-ary Support:</strong> Handle statements with multiple objects (not just binary relations)</li>
+<li><strong>Dynamic Labels:</strong> Display as natural language sentences in user interfaces</li>
+<li><strong>Versioning Support:</strong> Track changes and editing history</li>
+<li><strong>Metadata Rich:</strong> Include confidence levels, negation, context, and provenance</li>
+<li><strong>Wikidata Integration:</strong> Use Wikidata terms for immediate usability</li>
+</ul>
+
+<p><strong>Statement Structure:</strong></p>
+<ul>
+<li><strong>Subject:</strong> The main entity the statement is about</li>
+<li><strong>Predicate:</strong> Captured by the statement type/class</li>
+<li><strong>Objects:</strong> Up to 4 object positions (resources or literals)</li>
+<li><strong>Constraints:</strong> Type restrictions for each position</li>
+</ul>
+
+<p><strong>Example:</strong> "This apple has a weight of 241.68 grams" becomes a 'has-measurement' statement type with subject=apple, object1=weight (quality), object2=241.68 (value), object3=gram (unit).</p>
+
+<p>This approach significantly lowers the barrier for domain experts to create FAIR knowledge graphs without requiring expertise in semantics, RDF, or ontology engineering.</p>""" ;
+        nt:hasNanopubLabelPattern "Rosetta Statement: ${dynamicLabelTemplate}" ;
+        nt:hasStatement <https://w3id.org/np/RARosettaStatementTemplate#st01>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st02>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st03>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st04>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st05>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st06>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st07>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st08>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st09>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st10>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st11>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st12>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st13>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st14>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st15>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st16>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st17>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st18>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st19>,
+            <https://w3id.org/np/RARosettaStatementTemplate#st20> ;
+        nt:hasTag "Cognitive Interoperability",
+            "FAIR",
+            "Knowledge Graphs",
+            "Natural Language",
+            "Rosetta Statements",
+            "Semantic Modeling" ;
+        nt:hasTargetNanopubType schema1:Statement,
+            rosetta:RosettaStatement .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#object1Type> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Constraint for first object position" ;
+        nt:possibleValue "boolean",
+            "date",
+            "literal",
+            "number",
+            "resource",
+            "text" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#object2Type> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Constraint for second object position" ;
+        nt:possibleValue "boolean",
+            "date",
+            "literal",
+            "number",
+            "resource",
+            "text" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#object3Type> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Constraint for third object position" ;
+        nt:possibleValue "boolean",
+            "date",
+            "literal",
+            "number",
+            "resource",
+            "text" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#object4Type> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Constraint for fourth object position" ;
+        nt:possibleValue "boolean",
+            "date",
+            "literal",
+            "number",
+            "resource",
+            "text" .
+
+    rosetta:anchorStatement rdfs:label "anchor statement - version-independent statement identity" .
+
+    rosetta:optionalLiteralObjectPosition1 rdfs:label "optional literal object position 1 - first optional literal" .
+
+    rosetta:requiredLiteralObjectPosition1 rdfs:label "required literal object position 1 - first mandatory literal" .
+
+    rosetta:requiredObjectPosition2 rdfs:label "required object position 2 - second mandatory object" .
+
+    rdf:type rdfs:label "is a - connects to class/type" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#anchorStatement> a nt:LocalResource ;
+        rdfs:label "Anchor statement for versioning" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#confidenceLevel> a nt:LiteralPlaceholder ;
+        rdfs:label "Confidence level (0.0-1.0)" ;
+        nt:hasDatatype xsd:decimal ;
+        nt:hasRegex "^(0(\\.\\d+)?|1(\\.0+)?)$" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#context> a nt:ExternalUriPlaceholder ;
+        rdfs:label "Context (e.g., DOI of scholarly publication)" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#dynamicLabelTemplate> a nt:LiteralPlaceholder ;
+        rdfs:label "Dynamic label template (e.g., 'SUBJECT has QUALITY of VALUE UNIT')" ;
+        nt:hasRegex ".{10,200}" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#isNegation> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Is this statement negated?" ;
+        nt:possibleValue "false",
+            "true" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#objectPosition1> a nt:ExternalUriPlaceholder ;
+        rdfs:label "First object (required or optional)" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#objectPosition2> a nt:ExternalUriPlaceholder ;
+        rdfs:label "Second object (optional)" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#objectPosition3> a nt:ExternalUriPlaceholder ;
+        rdfs:label "Third object (optional)" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#objectPosition4> a nt:ExternalUriPlaceholder ;
+        rdfs:label "Fourth object (optional)" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#sourceReference> a nt:ExternalUriPlaceholder ;
+        rdfs:label "Source reference supporting this statement" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st01> rdf:object rosetta:RosettaStatement ;
+        rdf:predicate rdf:type ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st02> rdf:object <https://w3id.org/np/RARosettaStatementTemplate#statementType> ;
+        rdf:predicate rosetta:hasStatementType ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st03> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#dynamicLabelTemplate> ;
+        rdf:predicate rosetta:hasDynamicLabel ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st04> rdf:object <https://w3id.org/np/RARosettaStatementTemplate#subjectResource> ;
+        rdf:predicate rosetta:subject ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st05> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#subjectLabel> ;
+        rdf:predicate rdfs:label ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#subjectResource> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st06> rdf:object <https://w3id.org/np/RARosettaStatementTemplate#objectPosition1> ;
+        rdf:predicate rosetta:requiredObjectPosition1 ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st07> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#objectPosition2> ;
+        rdf:predicate rosetta:optionalObjectPosition1 ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st08> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#objectPosition3> ;
+        rdf:predicate rosetta:optionalObjectPosition2 ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st09> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#objectPosition4> ;
+        rdf:predicate rosetta:optionalObjectPosition3 ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st10> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#confidenceLevel> ;
+        rdf:predicate rosetta:hasConfidenceLevel ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st11> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#context> ;
+        rdf:predicate rosetta:hasContext ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st12> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#isNegation> ;
+        rdf:predicate rosetta:isNegation ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st13> a nt:OptionalStatement,
+            nt:RepeatableStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#sourceReference> ;
+        rdf:predicate rosetta:hasSourceReference ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st14> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#version> ;
+        rdf:predicate rosetta:hasVersion ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#st15> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> ;
+        rdf:predicate rosetta:hasVersion ;
+        rdf:subject <https://w3id.org/np/RARosettaStatementTemplate#anchorStatement> .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#statementType> a nt:GuidedChoicePlaceholder ;
+        rdfs:label "Type of Rosetta Statement (predicate-based classification)" ;
+        nt:possibleValuesFromApi "https://w3id.org/np/l/nanopub-query-1.1/api/find-things?type=https://w3id.org/rosetta/RosettaStatementClass" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#subjectLabel> a nt:LiteralPlaceholder ;
+        rdfs:label "Human-readable label for subject" ;
+        nt:hasRegex ".{1,100}" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#version> a nt:LiteralPlaceholder ;
+        rdfs:label "Version identifier" ;
+        nt:hasRegex ".{1,50}" .
+
+    rosetta:hasConfidenceLevel rdfs:label "has confidence level - degree of certainty (0-1)" .
+
+    rosetta:hasContext rdfs:label "has context - scholarly publication or broader context" .
+
+    rosetta:hasDynamicLabel rdfs:label "has dynamic label - template for natural language display" .
+
+    rosetta:hasSourceReference rdfs:label "has source reference - supporting evidence" .
+
+    rosetta:hasStatementType rdfs:label "has statement type - connects to Rosetta Statement class" .
+
+    rosetta:isNegation rdfs:label "is negation - whether this statement is negated" .
+
+    rosetta:optionalObjectPosition1 rdfs:label "optional object position 1 - first optional object" .
+
+    rosetta:optionalObjectPosition2 rdfs:label "optional object position 2 - second optional object" .
+
+    rosetta:optionalObjectPosition3 rdfs:label "optional object position 3 - third optional object" .
+
+    rosetta:requiredObjectPosition1 rdfs:label "required object position 1 - first mandatory object" .
+
+    rosetta:subject rdfs:label "has subject - connects statement to its subject resource" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#subjectResource> a nt:ExternalUriPlaceholder ;
+        rdfs:label "Subject resource (Wikidata URI or ontology term)" .
+
+    rosetta:RosettaStatement rdfs:label "Rosetta Statement - a natural language statement modeled semantically" .
+
+    rosetta:hasVersion rdfs:label "has version - links to statement version" .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#statementInstance> a nt:IntroducedResource ;
+        rdfs:label "The Rosetta Statement instance" .
+}
+
+sub:provenance {
+    sub:assertion prov:generatedAtTime "2025-05-29T19:27:10.982744"^^xsd:dateTime .
+
+    <https://w3id.org/np/RARosettaStatementTemplate#assertion> prov:wasAttributedTo orcid:0000-0002-1784-2920 .
+}
+
+sub:Head {
+    this: a np:Nanopublication ;
+        np:hasAssertion sub:assertion ;
+        np:hasProvenance sub:provenance ;
+        np:hasPublicationInfo sub:pubinfo .
+}
+```
