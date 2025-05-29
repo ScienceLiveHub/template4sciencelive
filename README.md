@@ -4,7 +4,11 @@ The idea would be to enable users to create new templates by combining existing 
 
 As a first step, we are exploring how to create new nanopublication templates.
 
-## Template with spatio-temporal coverage
+## Step-1: creation of nanopublication templates ("manual" approach)
+
+Below we create different nanopublication templates from "scratch". In a second step, we will want to have a more modular approach.
+
+### Template with spatio-temporal coverage
 
 ```
 Python scripts to help generating nanopublication templates for the Science Live Project. 
@@ -289,7 +293,7 @@ sub:pubinfo {
 }
 ```
 
-## Template following patent claim 
+### Template following patent claim 
 
 This template enables researchers and patent professionals to create nanopublications that capture patent claims in a structured, machine-readable format while maintaining the formal structure required by patent law e.g. follow [https://www.wipo.int/edocs/mdocs/aspac/en/wipo_ip_phl_16/wipo_ip_phl_16_t5.pdf](https://www.wipo.int/edocs/mdocs/aspac/en/wipo_ip_phl_16/wipo_ip_phl_16_t5.pdf).
 
@@ -340,7 +344,7 @@ sub:assertion {
 }
 ```
 
-## Nanopublication template for papers
+### Nanopublication template for papers
 
 Using the information from the paper https://ceur-ws.org/Vol-1155/paper-07.pdf.
 
