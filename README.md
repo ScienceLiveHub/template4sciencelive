@@ -1,4 +1,4 @@
-# Create Nanopublication Templates For sciencelive
+# Create Nanopublication Templates For ScienceLive
 
 The idea would be to enable users to create new templates by combining existing ones. For instance, we could combine the AIDA nanopublication template with a location template and a temporal coverage template to create a new template that includes all three.
 
