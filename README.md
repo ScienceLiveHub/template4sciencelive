@@ -339,3 +339,304 @@ sub:assertion {
         ns1:value "comprising" .
 }
 ```
+
+## Nanopublication template for papers
+
+Using the information from the paper https://ceur-ws.org/Vol-1155/paper-07.pdf.
+
+```
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix cito: <http://purl.org/spar/cito/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix nt: <https://w3id.org/np/o/ntemplate/> .
+@prefix orcid: <https://orcid.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sub: <http://purl.org/np/RAssxb2lh3aL0tiOTOwS37xJoLnNT3z8iYadzevzxZmKM#> .
+@prefix this: <http://purl.org/np/RAssxb2lh3aL0tiOTOwS37xJoLnNT3z8iYadzevzxZmKM> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sub:provenance {
+    sub:assertion prov:generatedAtTime "2025-05-29T18:14:07.645667"^^xsd:dateTime .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#assertion> prov:wasAttributedTo orcid:0000-0002-1784-2920 .
+}
+
+sub:assertion {
+    dcterms:abstract rdfs:label "has abstract" .
+
+    dcterms:creator rdfs:label "has author/creator" .
+
+    dcterms:date rdfs:label "has publication date" .
+
+    dcterms:isPartOf rdfs:label "is part of (journal or venue)" .
+
+    dcterms:subject rdfs:label "has subject/research field" .
+
+    dcterms:title rdfs:label "has title" .
+
+    bibo:AcademicArticle rdfs:label "academic article - a scholarly article published in an academic venue" .
+
+    cito:agreesWith rdfs:label "agrees with" .
+
+    cito:cites rdfs:label "cites" .
+
+    cito:citesAsEvidence rdfs:label "cites as evidence" .
+
+    cito:disagreesWith rdfs:label "disagrees with" .
+
+    cito:extends rdfs:label "extends" .
+
+    cito:supports rdfs:label "supports" .
+
+    cito:usesDataFrom rdfs:label "uses data from" .
+
+    cito:usesMethodIn rdfs:label "uses method in" .
+
+    deo:Discussion rdfs:label "discussion - section analyzing and interpreting results" .
+
+    deo:Introduction rdfs:label "introduction - opening section that establishes context and purpose" .
+
+    deo:Methods rdfs:label "methods - section describing methodology and procedures" .
+
+    deo:Results rdfs:label "results - section presenting findings and outcomes" .
+
+    deo:hasGoal rdfs:label "has research goal" .
+
+    deo:hasHypothesis rdfs:label "has hypothesis" .
+
+    rdf:type rdfs:label "is a - connects a thing to a class it belongs to" .
+
+    foaf:name rdfs:label "has name" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#assertion> a nt:AssertionTemplate ;
+        rdfs:label "Describing a scientific paper with comprehensive metadata" ;
+        dcterms:description """<p>This template allows comprehensive semantic annotation of scientific papers using established ontologies for scholarly publishing.</p>
+    
+    <p>The template incorporates:</p>
+    <ul>
+    <li><strong>DoCO (Document Components Ontology):</strong> For describing document structure (sections, figures, tables, etc.)</li>
+    <li><strong>DEO (Discourse Elements Ontology):</strong> For rhetorical elements (introduction, methods, results, conclusions)</li>
+    <li><strong>BIBO (Bibliographic Ontology):</strong> For bibliographic metadata</li>
+    <li><strong>CiTO (Citation Typing Ontology):</strong> For characterizing citations</li>
+    <li><strong>FOAF:</strong> For author information</li>
+    <li><strong>Dublin Core Terms:</strong> For basic metadata</li>
+    </ul>
+    
+    <p>This follows the recommendations from Ruiz-Iniesta & Corcho's ontology review for semantic annotation of scholarly documents.</p>
+    
+    <p>You can specify:</p>
+    <ul>
+    <li><strong>Basic Metadata:</strong> Title, abstract, publication date, journal</li>
+    <li><strong>Authors:</strong> Multiple authors with ORCID IDs and names</li>
+    <li><strong>Document Structure:</strong> Presence of standard sections (introduction, methods, results, discussion)</li>
+    <li><strong>Research Content:</strong> Goals, hypotheses, and research questions</li>
+    <li><strong>Citations:</strong> Papers cited with specific relationship types</li>
+    <li><strong>Research Field:</strong> Domain classification</li>
+    </ul>""" ;
+        nt:hasNanopubLabelPattern "Scientific Paper: ${paperTitle}" ;
+        nt:hasStatement <https://w3id.org/np/RAScientificPaperTemplate#st01>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st02>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st03>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st04>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st05>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st06>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st07>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st08>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st09>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st10>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st11>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st12>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st13>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st14>,
+            <https://w3id.org/np/RAScientificPaperTemplate#st15> ;
+        nt:hasTag "Academic Literature",
+            "Bibliography",
+            "Research Papers",
+            "Scholarly Communication",
+            "Scientific Publications" ;
+        nt:hasTargetNanopubType bibo:AcademicArticle,
+            fabio:ResearchPaper .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#authorName> a nt:LiteralPlaceholder ;
+        rdfs:label "Name of the author" ;
+        nt:hasRegex ".{2,50}" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#citationType> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Type of citation relationship" ;
+        nt:possibleValue cito:agreesWith,
+            cito:cites,
+            cito:citesAsEvidence,
+            cito:disagreesWith,
+            cito:extends,
+            cito:supports,
+            cito:usesDataFrom,
+            cito:usesMethodIn .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#citedPaper> a nt:ExternalUriPlaceholder ;
+        rdfs:label "DOI or URL of a cited paper" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#hasDiscussion> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Does the paper have a discussion/conclusions section?" ;
+        nt:possibleValue "false",
+            "true" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#hasIntroduction> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Does the paper have an introduction section?" ;
+        nt:possibleValue "false",
+            "true" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#hasMethods> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Does the paper have a methods/methodology section?" ;
+        nt:possibleValue "false",
+            "true" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#hasResults> a nt:RestrictedChoicePlaceholder ;
+        rdfs:label "Does the paper have a results section?" ;
+        nt:possibleValue "false",
+            "true" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#hypothesis> a nt:LiteralPlaceholder ;
+        rdfs:label "Main hypothesis being tested" ;
+        nt:hasRegex ".{10,500}" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#journal> a nt:ExternalUriPlaceholder ;
+        rdfs:label "Journal or venue where published" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#paperAbstract> a nt:LiteralPlaceholder ;
+        rdfs:label "Abstract of the paper" ;
+        nt:hasRegex ".{50,2000}" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#paperTitle> a nt:LiteralPlaceholder ;
+        rdfs:label "Title of the paper" ;
+        nt:hasRegex ".{5,200}" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#publicationDate> a nt:LiteralPlaceholder ;
+        rdfs:label "Publication date (YYYY-MM-DD format)" ;
+        nt:hasDatatype xsd:date ;
+        nt:hasRegex "\\d{4}-\\d{2}-\\d{2}" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#researchField> a nt:GuidedChoicePlaceholder ;
+        rdfs:label "Research field or domain" ;
+        nt:possibleValuesFromApi "https://www.wikidata.org/w/api.php?action=wbsearchentities&language=en&format=json&limit=5&search=" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#researchGoal> a nt:LiteralPlaceholder ;
+        rdfs:label "Main research goal or objective" ;
+        nt:hasRegex ".{10,500}" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st01> rdf:object fabio:ResearchPaper ;
+        rdf:predicate rdf:type ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st02> rdf:object <https://w3id.org/np/RAScientificPaperTemplate#paperTitle> ;
+        rdf:predicate dcterms:title ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st03> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#paperAbstract> ;
+        rdf:predicate dcterms:abstract ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st04> rdf:object <https://w3id.org/np/RAScientificPaperTemplate#publicationDate> ;
+        rdf:predicate dcterms:date ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st05> a nt:RepeatableStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#author> ;
+        rdf:predicate dcterms:creator ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st06> a nt:RepeatableStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#authorName> ;
+        rdf:predicate foaf:name ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#author> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st07> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#journal> ;
+        rdf:predicate dcterms:isPartOf ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st08> a nt:OptionalStatement ;
+        rdf:object deo:Introduction ;
+        rdf:predicate doco:hasSection ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> ;
+        nt:statementIri <https://w3id.org/np/RAScientificPaperTemplate#hasIntroduction> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st09> a nt:OptionalStatement ;
+        rdf:object deo:Methods ;
+        rdf:predicate doco:hasSection ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> ;
+        nt:statementIri <https://w3id.org/np/RAScientificPaperTemplate#hasMethods> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st10> a nt:OptionalStatement ;
+        rdf:object deo:Results ;
+        rdf:predicate doco:hasSection ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> ;
+        nt:statementIri <https://w3id.org/np/RAScientificPaperTemplate#hasResults> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st11> a nt:OptionalStatement ;
+        rdf:object deo:Discussion ;
+        rdf:predicate doco:hasSection ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> ;
+        nt:statementIri <https://w3id.org/np/RAScientificPaperTemplate#hasDiscussion> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st12> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#researchGoal> ;
+        rdf:predicate deo:hasGoal ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st13> a nt:OptionalStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#hypothesis> ;
+        rdf:predicate deo:hasHypothesis ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st14> a nt:OptionalStatement,
+            nt:RepeatableStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#citedPaper> ;
+        rdf:predicate <https://w3id.org/np/RAScientificPaperTemplate#citationType> ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#st15> a nt:OptionalStatement,
+            nt:RepeatableStatement ;
+        rdf:object <https://w3id.org/np/RAScientificPaperTemplate#researchField> ;
+        rdf:predicate dcterms:subject ;
+        rdf:subject <https://w3id.org/np/RAScientificPaperTemplate#paper> .
+
+    fabio:ResearchPaper rdfs:label "research paper - a scholarly paper reporting original research results" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#author> a nt:ExternalUriPlaceholder ;
+        rdfs:label "ORCID ID or URI of an author" .
+
+    doco:hasSection rdfs:label "has document section" .
+
+    <https://w3id.org/np/RAScientificPaperTemplate#paper> a nt:ExternalUriPlaceholder,
+            nt:IntroducedResource ;
+        rdfs:label "DOI or URL of the scientific paper" .
+}
+
+sub:Head {
+    this: a np:Nanopublication ;
+        np:hasAssertion sub:assertion ;
+        np:hasProvenance sub:provenance ;
+        np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:pubinfo {
+    sub:sig npx:hasAlgorithm "RSA" ;
+        npx:hasPublicKey "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiyQy1W8XMtTYjWcm58mwTWsbHiael99AVhftlwZzJ2jn/VjUcGU53EVa3iUR1Du1JShTqR1bc7kQU4veKYab/JuVxfLJO2Ht2Cb6hdDhNyi4XAOJDfUol2vhKck1kmPfHdU+LxEaCr+nQM7MC77tuDRF3U5AlESme42/bLyjezkNh1K2+5E3qen6mTvnYHfc51YeqTeqaWmAAtPvp9gzlfmYwaH0ke1fPBFuGBl4vf9ZFXz7/jjjtP9anSLmLBtgsEIkRADw77HQjS0rMYIpXJ4TRC/E36QPT1/5oumGAqnu77b6vGAEQRgEVHosNttztdqpblvYIHRRwCVF1n9c+wIDAQAB" ;
+        npx:hasSignature "g2i6y5ZWAs7vkcIqgilwez4tfjfkVrZ3n9+beadObVOFqQrTCvRzXXwyWUb6T0029MGBCdB9OnZ0kzLitoTAiJyv+uHhJx2mMaf2dF19OB4uM60i4Ymxt2sPkPQ7y4vlu1vDdXtTTRhNNY16+53djySm0x3VYod/Ga7+drsdCFGOO29SS1EViHwkG5Hvqtt9ZP9HO1cc/tDh7LiCkd5X1Wv78pcyMkxMCIRxpGjrfZz7AtwC/CmY804THW04enyclXOlc+ETfUI59Lu710LWrEbfrMbo2KwbT5DlHDskA3pC+MGmUU6cjImBMjuNaK2RAyI3ocInaSjaTaG8+YgpjQ==" ;
+        npx:hasSignatureTarget this: .
+
+    this: prov:generatedAtTime "2025-05-29T18:14:07.645667"^^xsd:dateTime ;
+        prov:wasAttributedTo orcid:0000-0002-1784-2920 .
+
+    orcid:0000-0002-1784-2920 foaf:name "Anne Fouilloux" .
+}
+```
