@@ -4,6 +4,12 @@ The idea would be to enable users to create new templates by combining existing 
 
 As a first step, we are exploring how to create new nanopublication templates.
 
+We generate nanopublication templates as TriG and can convert them with Apache Jena Binaries (https://jena.apache.org/download/):
+
+```
+riot --output=jsonld rosetta_statement_template.trig > rosetta_statement_template.jsonld
+```
+
 ## Step-1: creation of nanopublication templates ("manual" approach)
 
 Below we create different nanopublication templates from "scratch". In a second step, we will want to have a more modular approach.
